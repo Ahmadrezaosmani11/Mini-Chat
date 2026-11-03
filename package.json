@@ -1,0 +1,39 @@
+{
+  "name": "dtp2p",
+  "productName": "DTP2P",
+  "version": "1.4.0",
+  "type": "module",
+  "main": "src/main/main.js",
+  "private": true,
+  "engines": { "node": "22.x" },
+  "scripts": {
+    "start": "electron .",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:ui": "playwright test",
+    "verify:runtime": "node scripts/verify-runtime.js",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "npm run verify:runtime && electron-builder --win nsis --x64"
+  },
+ "dependencies": {
+    "@fastify/cookie": "11.0.2",
+    "@fastify/static": "8.2.0",
+    "better-sqlite3": "12.2.0",
+    "cborg": "4.2.12",
+    "fastify": "5.4.0",
+    "libsodium-wrappers-sumo": "0.7.15",
+    "ws": "8.18.3",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.54.2",
+    "electron": "37.2.6",
+    "electron-builder": "26.0.12",
+    "eslint": "9.32.0",
+    "eslint-plugin-n": "17.21.3",
+    "eslint-plugin-security": "3.0.1",
+    "prettier": "3.6.2",
+    "vitest": "3.2.4"
+  }
+}
